@@ -7,7 +7,7 @@ const Distribution = () => {
   const setup = (p5, canvasParentRef) => {
     const canvasWidth = canvasParentRef.offsetWidth;
     const canvasHeight = canvasWidth * 0.5; // 50% of width (adjust as needed)
-    p5.background(255);
+    p5.background(0);
     p5.createCanvas(canvasWidth, canvasHeight).parent(canvasParentRef);
     for (let i = 0; i < total; i++) {
       randomCounts[i] = 0;
@@ -26,8 +26,8 @@ const Distribution = () => {
   const draw = (p5) => {
     let index = p5.floor(p5.random(randomCounts.length));
     randomCounts[index]++;
+    p5.fill(0, 255, 0);
     p5.stroke(0);
-    p5.fill(127);
     let w = p5.width / randomCounts.length;
 
     for (let x = 0; x < randomCounts.length; x++) {
